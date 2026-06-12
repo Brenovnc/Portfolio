@@ -30,61 +30,61 @@
   --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-/* ---------- DARK (default) — azul profundo / acento aço ---------- */
+/* ---------- DARK (default) — azul profundo / acento ciano ---------- */
 :root,
 [data-theme='dark'] {
   color-scheme: dark;
   --radius: 0.625rem;
 
-  --background: #070b14;
-  --foreground: #e7ecf4;
-  --card: rgba(255, 255, 255, 0.018);
-  --card-foreground: #e7ecf4;
-  --surface: rgba(255, 255, 255, 0.04);
-  --muted: rgba(255, 255, 255, 0.05);
-  --muted-foreground: #8c97ac;
-  --border: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.12);
+  --background: #0d1422;
+  --foreground: #e5f0f9;
+  --card: rgba(94, 179, 214, 0.015);
+  --card-foreground: #e5f0f9;
+  --surface: rgba(94, 179, 214, 0.05);
+  --muted: rgba(94, 179, 214, 0.07);
+  --muted-foreground: #8fa3b8;
+  --border: rgba(94, 179, 214, 0.15);
+  --border-strong: rgba(94, 179, 214, 0.22);
 
-  --accent: #7ea6d8;
-  --accent-foreground: #eaf2fc;
-  --eyebrow: #6f8bb0;
+  --accent: #5eb3d6;
+  --accent-foreground: #d4e8f5;
+  --eyebrow: #7ea6d8;
 
-  --primary: rgba(255, 255, 255, 0.04);
-  --primary-foreground: #eef3fb;
+  --primary: rgba(94, 179, 214, 0.1);
+  --primary-foreground: #e8f0f9;
 
-  --glow-1: rgba(70, 110, 175, 0.22);
-  --glow-2: rgba(46, 86, 140, 0.18);
-  --glow-3: rgba(120, 150, 200, 0.1);
-  --star: rgba(255, 255, 255, 0.85);
+  --glow-1: rgba(94, 179, 214, 0.25);
+  --glow-2: rgba(70, 130, 180, 0.18);
+  --glow-3: rgba(120, 160, 200, 0.12);
+  --star: rgba(230, 240, 250, 0.9);
 }
 
-/* ---------- DARK2 — preto / acento dourado ---------- */
+/* ---------- DARK2 — preto / acento dourado vibrante ---------- */
 [data-theme='dark2'] {
   color-scheme: dark;
   --radius: 0.625rem;
 
-  --background: #08080e;
-  --foreground: #ece6d8;
-  --card: rgba(201, 164, 74, 0.018);
-  --card-foreground: #ece6d8;
-  --surface: rgba(201, 164, 74, 0.05);
-  --muted: rgba(201, 164, 74, 0.06);
-  --muted-foreground: #9b927d;
-  --border: rgba(201, 164, 74, 0.14);
-  --border-strong: rgba(201, 164, 74, 0.26);
+  --background: #0a0a0f;
+  --foreground: #e8dcc8;
+  --card: rgba(212, 175, 55, 0.015);
+  --card-foreground: #e8dcc8;
+  --surface: rgba(212, 175, 55, 0.06);
+  --muted: rgba(212, 175, 55, 0.08);
+  --muted-foreground: #a89668;
+  --border: rgba(212, 175, 55, 0.18);
+  --border-strong: rgba(212, 175, 55, 0.28);
 
-  --accent: #c9a44a;
-  --accent-foreground: #f3ead3;
-  --eyebrow: #c9a44a;
+  --accent: #d4af37;
+  --accent-foreground: #f5f0e8;
+  --eyebrow: #d4af37;
 
-  --primary: #5b51a6;
-  --primary-foreground: #f1eefb;
+  --primary: #6b5b48;
+  --primary-foreground: #f3eee6;
 
-  --glow-1: rgba(201, 164, 74, 0.18);
-  --glow-2: rgba(150, 116, 40, 0.16);
-  --glow-3: rgba(91, 81, 166, 0.12);
-  --star: rgba(244, 232, 200, 0.85);
+  --glow-1: rgba(212, 175, 55, 0.2);
+  --glow-2: rgba(180, 140, 40, 0.16);
+  --glow-3: rgba(150, 120, 60, 0.12);
+  --star: rgba(245, 240, 232, 0.85);
 }
 
 /* ---------- LIGHT — claro premium / acento azul ---------- */

@@ -151,7 +151,7 @@ export function Projects() {
 
   return (
     <section id="projects" className="mx-auto mt-32 max-w-6xl px-5 sm:px-8">
-      <SectionHeading tag="Sobre mim" title="projects" />
+      <SectionHeading tag="Sobre mim" title="Projects" />
 
       <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 sm:gap-4">
         <button
@@ -166,7 +166,7 @@ export function Projects() {
 
         <div
           ref={trackRef}
-          className="flex min-w-0 snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex min-w-0 snap-x snap-mandatory gap-6 overflow-x-auto pb-4 scrollbar-none [&::-webkit-scrollbar]:hidden"
         >
           {PROJECTS.map((project) => (
             <div
