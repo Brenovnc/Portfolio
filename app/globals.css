@@ -125,6 +125,11 @@
   html {
     @apply font-sans;
     transition: background-color 0.5s ease;
+    scroll-padding-top: 2.8rem;
+  }
+
+  section[id] {
+    scroll-margin-top: 2.8rem;
   }
 }
 
@@ -233,4 +238,9 @@ body,
 /* Ensure main content sits above the texture layer */
 .app-content {
   position: relative;
+}
+
+/* Hide Next.js devtools indicator in development mode */
+nextjs-portal {
+  display: none !important;
 }
