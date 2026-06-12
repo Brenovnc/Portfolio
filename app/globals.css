@@ -1,0 +1,236 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --font-heading: var(--font-playfair), 'Playfair Display', serif;
+  --font-serif: var(--font-playfair), 'Playfair Display', serif;
+  --font-sans: var(--font-geist-sans), 'Geist Fallback';
+  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-eyebrow: var(--eyebrow);
+  --color-surface: var(--surface);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+/* ---------- DARK (default) — azul profundo / acento aço ---------- */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --radius: 0.625rem;
+
+  --background: #070b14;
+  --foreground: #e7ecf4;
+  --card: rgba(255, 255, 255, 0.018);
+  --card-foreground: #e7ecf4;
+  --surface: rgba(255, 255, 255, 0.04);
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #8c97ac;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  --accent: #7ea6d8;
+  --accent-foreground: #eaf2fc;
+  --eyebrow: #6f8bb0;
+
+  --primary: rgba(255, 255, 255, 0.04);
+  --primary-foreground: #eef3fb;
+
+  --glow-1: rgba(70, 110, 175, 0.22);
+  --glow-2: rgba(46, 86, 140, 0.18);
+  --glow-3: rgba(120, 150, 200, 0.1);
+  --star: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------- DARK2 — preto / acento dourado ---------- */
+[data-theme='dark2'] {
+  color-scheme: dark;
+  --radius: 0.625rem;
+
+  --background: #08080e;
+  --foreground: #ece6d8;
+  --card: rgba(201, 164, 74, 0.018);
+  --card-foreground: #ece6d8;
+  --surface: rgba(201, 164, 74, 0.05);
+  --muted: rgba(201, 164, 74, 0.06);
+  --muted-foreground: #9b927d;
+  --border: rgba(201, 164, 74, 0.14);
+  --border-strong: rgba(201, 164, 74, 0.26);
+
+  --accent: #c9a44a;
+  --accent-foreground: #f3ead3;
+  --eyebrow: #c9a44a;
+
+  --primary: #5b51a6;
+  --primary-foreground: #f1eefb;
+
+  --glow-1: rgba(201, 164, 74, 0.18);
+  --glow-2: rgba(150, 116, 40, 0.16);
+  --glow-3: rgba(91, 81, 166, 0.12);
+  --star: rgba(244, 232, 200, 0.85);
+}
+
+/* ---------- LIGHT — claro premium / acento azul ---------- */
+[data-theme='light'] {
+  color-scheme: light;
+  --radius: 0.625rem;
+
+  --background: #eef1f7;
+  --foreground: #0f1726;
+  --card: rgba(255, 255, 255, 0.85);
+  --card-foreground: #0f1726;
+  --surface: #ffffff;
+  --muted: rgba(20, 30, 50, 0.05);
+  --muted-foreground: #475168;
+  --border: rgba(20, 30, 50, 0.14);
+  --border-strong: rgba(20, 30, 50, 0.24);
+
+  --accent: #2b5fa6;
+  --accent-foreground: #102a4f;
+  --eyebrow: #2f63ab;
+
+  --primary: #21528f;
+  --primary-foreground: #f5f8fd;
+
+  --glow-1: rgba(96, 140, 210, 0.42);
+  --glow-2: rgba(120, 160, 225, 0.34);
+  --glow-3: rgba(168, 190, 230, 0.38);
+  --star: rgba(40, 70, 120, 0.8);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    transition: background-color 0.5s ease;
+  }
+}
+
+/* Smooth theme transitions on key surfaces */
+body,
+[data-theme] * {
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    color 0.5s ease;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Subtle twinkle for constellation stars */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+/* Shooting star streaks across the sky */
+@keyframes shoot {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(18deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  60%,
+  100% {
+    transform: translate3d(560px, 180px, 0) rotate(18deg);
+    opacity: 0;
+  }
+}
+.animate-shoot {
+  animation: shoot var(--shoot-duration, 7s) ease-in infinite;
+  animation-delay: var(--shoot-delay, 0s);
+}
+
+/* Gentle floating drift for the compass */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+/* Slow rotation for the compass ticks ring */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  transform-origin: center;
+  animation: spin-slow 60s linear infinite;
+}
+
+/* Blinking caret for the typing effect */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.animate-caret {
+  animation: caret-blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-twinkle,
+  .animate-shoot,
+  .animate-float-slow,
+  .animate-spin-slow,
+  .animate-caret {
+    animation: none;
+  }
+}
+
+/* Ensure main content sits above the texture layer */
+.app-content {
+  position: relative;
+}
