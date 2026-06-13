@@ -1,5 +1,6 @@
 import { ArrowRight, Download } from 'lucide-react'
 import { Typewriter } from './typewriter'
+import { PortalWireframe } from './portal-wireframe'
 
 const TAGS = ['Python', 'Node.js', 'Database', 'Cloud']
 
@@ -7,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative mx-auto max-w-6xl px-5 pt-36 sm:px-8 sm:pt-44"
+      className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-5 pt-36 sm:px-8 sm:pt-44 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6"
     >
       <div className="max-w-3xl">
           <p className="mb-5 text-xs font-medium uppercase tracking-[0.35em] text-eyebrow">
@@ -19,7 +20,11 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 flex min-h-[3.5rem] max-w-xl items-start text-base leading-relaxed text-muted-foreground sm:text-lg">
-            <Typewriter text="Desenvolvedor Backend e Engenheiro de Software" />
+            <Typewriter
+              text="Desenvolvedor Backend e Engenheiro de Software"
+              pauseAfterTyping={4500}
+              deletingSpeed={18}
+            />
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2">
@@ -53,6 +58,10 @@ export function Hero() {
           <p className="mt-12 font-heading text-lg italic text-muted-foreground">
             Projetos, universo e código movem ideias.
           </p>
+      </div>
+
+      <div className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none">
+        <PortalWireframe />
       </div>
     </section>
   )

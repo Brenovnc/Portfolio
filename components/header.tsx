@@ -7,6 +7,7 @@ import { ThemeSwitcher } from './theme-switcher'
 const NAV = [
   { label: 'home', href: '#home' },
   { label: 'about', href: '#about' },
+  { label: 'experience', href: '#experience' },
   { label: 'projects', href: '#projects' },
   { label: 'skills', href: '#skills' },
   { label: 'contact', href: '#contact' },
