@@ -1,5 +1,6 @@
 import { About } from '@/components/about'
 import { BackgroundFx } from '@/components/background-fx'
+import { Experience } from '@/components/experience'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
@@ -15,6 +16,7 @@ export default function Page() {
       <main>
         <Hero />
         <About />
+        <Experience />
         <Projects />
         <Skills />
       </main>

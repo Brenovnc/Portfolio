@@ -101,6 +101,53 @@ export function PortalWireframe() {
     let frame = 0
     let raf = 0
 
+    // Interação por arraste
+    let dragging = false
+    let lastX = 0
+    let lastY = 0
+    let velX = 0 // velocidade angular em Y (movimento horizontal)
+    let velY = 0 // velocidade angular em X (movimento vertical)
+    let idleResume = 0 // contador para retomar a auto-rotação após soltar
+
+    const onPointerDown = (e: PointerEvent) => {
+      dragging = true
+      idleResume = 0
+      velX = 0
+      velY = 0
+      lastX = e.clientX
+      lastY = e.clientY
+      canvas.setPointerCapture(e.pointerId)
+      canvas.style.cursor = 'grabbing'
+    }
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!dragging) return
+      const dx = e.clientX - lastX
+      const dy = e.clientY - lastY
+      lastX = e.clientX
+      lastY = e.clientY
+      velX = dx * 0.005
+      velY = dy * 0.005
+      rotY += velX
+      rotX += velY
+    }
+
+    const onPointerUp = (e: PointerEvent) => {
+      if (!dragging) return
+      dragging = false
+      idleResume = 0
+      canvas.style.cursor = 'grab'
+      try {
+        canvas.releasePointerCapture(e.pointerId)
+      } catch {}
+    }
+
+    canvas.style.cursor = 'grab'
+    canvas.addEventListener('pointerdown', onPointerDown)
+    canvas.addEventListener('pointermove', onPointerMove)
+    canvas.addEventListener('pointerup', onPointerUp)
+    canvas.addEventListener('pointercancel', onPointerUp)
+
     const project = (v: Vec3, scale: number) => {
       // rotação em Y
       const cosY = Math.cos(rotY)
@@ -127,9 +174,21 @@ export function PortalWireframe() {
 
     const render = () => {
       frame += 1
-      if (!reduceMotion) {
-        rotY += 0.005
-        rotX = -0.35 + Math.sin(frame * 0.004) * 0.18
+      if (dragging) {
+        // controlado pelo ponteiro nos handlers
+      } else if (Math.abs(velX) > 0.0002 || Math.abs(velY) > 0.0002) {
+        // inércia após soltar
+        rotY += velX
+        rotX += velY
+        velX *= 0.95
+        velY *= 0.95
+        // limita a rotação vertical para não capotar
+        rotX = Math.max(-1.2, Math.min(1.2, rotX))
+      } else if (!reduceMotion) {
+        // retoma a auto-rotação suavemente
+        idleResume = Math.min(1, idleResume + 0.01)
+        rotY += 0.005 * idleResume
+        rotX += (-0.35 + Math.sin(frame * 0.004) * 0.18 - rotX) * 0.02 * idleResume
       }
 
       ctx.clearRect(0, 0, width, height)
@@ -209,6 +268,10 @@ export function PortalWireframe() {
       cancelAnimationFrame(raf)
       themeObserver.disconnect()
       resizeObserver.disconnect()
+      canvas.removeEventListener('pointerdown', onPointerDown)
+      canvas.removeEventListener('pointermove', onPointerMove)
+      canvas.removeEventListener('pointerup', onPointerUp)
+      canvas.removeEventListener('pointercancel', onPointerUp)
     }
   }, [])
 
@@ -216,7 +279,7 @@ export function PortalWireframe() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="h-full w-full"
+      className="h-full w-full touch-none"
     />
   )
 }

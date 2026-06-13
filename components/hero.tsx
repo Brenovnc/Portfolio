@@ -20,7 +20,11 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 flex min-h-[3.5rem] max-w-xl items-start text-base leading-relaxed text-muted-foreground sm:text-lg">
-            <Typewriter text="Desenvolvedor Backend e Engenheiro de Software" />
+            <Typewriter
+              text="Desenvolvedor Backend e Engenheiro de Software"
+              pauseAfterTyping={4500}
+              deletingSpeed={18}
+            />
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2">
