@@ -13,13 +13,21 @@ const playfair = Playfair_Display({
   weight: ['400', '500', '600', '700'],
 })
 
+const basePath =
+  process.env.NODE_ENV === 'production' ? '/Portfolio' : ''
+
 export const metadata: Metadata = {
   title: 'Portfólio de Breno Vieira',
   description:
     'Portfólio de Breno Vieira, Desenvolvedor Backend e Engenheiro de Software. Projetos, universo e código movem ideias.',
   icons: {
-    icon: [{ url: '/favicon-bv.svg', type: 'image/svg+xml' }],
-    shortcut: '/favicon-bv.svg',
+    icon: [
+      {
+        url: `${basePath}/favicon-bv.svg`,
+        type: 'image/svg+xml',
+      },
+    ],
+    shortcut: `${basePath}/favicon-bv.svg`,
   },
 }
 
