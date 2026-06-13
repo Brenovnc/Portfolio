@@ -6,7 +6,7 @@ import { ProfilePortrait } from './profile-portrait'
 const TAGS = ['Python', 'Node.js', 'Database', 'Cloud']
 
 // Escolha o modelo visual do hero: 'cube' (cubo wireframe animado) ou 'portrait' (foto circular)
-const HERO_VISUAL: 'cube' | 'portrait' = 'portrait'
+const HERO_VISUAL: 'cube' | 'portrait' = 'cube'
 
 export function Hero() {
   return (
