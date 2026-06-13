@@ -1,8 +1,12 @@
 import { ArrowRight, Download } from 'lucide-react'
 import { Typewriter } from './typewriter'
 import { PortalWireframe } from './portal-wireframe'
+import { ProfilePortrait } from './profile-portrait'
 
 const TAGS = ['Python', 'Node.js', 'Database', 'Cloud']
+
+// Escolha o modelo visual do hero: 'cube' (cubo wireframe animado) ou 'portrait' (foto circular)
+const HERO_VISUAL: 'cube' | 'portrait' = 'portrait'
 
 export function Hero() {
   return (
@@ -61,7 +65,7 @@ export function Hero() {
       </div>
 
       <div className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none">
-        <PortalWireframe />
+        {HERO_VISUAL === 'portrait' ? <ProfilePortrait /> : <PortalWireframe />}
       </div>
     </section>
   )

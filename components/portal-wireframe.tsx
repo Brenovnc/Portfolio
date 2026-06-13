@@ -193,7 +193,7 @@ export function PortalWireframe() {
 
       ctx.clearRect(0, 0, width, height)
 
-      const scale = Math.min(width, height) * 0.1
+      const scale = Math.min(width, height) * 0.2
 
       // Glow central pulsante
       const pulse = 0.5 + Math.sin(frame * 0.03) * 0.12
@@ -203,10 +203,10 @@ export function PortalWireframe() {
         0,
         width / 2,
         height / 2,
-        scale * 2.6,
+        scale * 3,
       )
       glow.addColorStop(0, withAlpha(accent, 0.22 * pulse))
-      glow.addColorStop(0.45, withAlpha(accent, 0.05))
+      glow.addColorStop(0.5, withAlpha(accent, 0.06))
       glow.addColorStop(1, 'transparent')
       ctx.fillStyle = glow
       ctx.fillRect(0, 0, width, height)
@@ -279,7 +279,7 @@ export function PortalWireframe() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="absolute left-1/2 top-1/2 h-[220%] w-[220%] -translate-x-1/2 -translate-y-1/2 touch-none"
+      className="h-full w-full touch-none"
     />
   )
 }
