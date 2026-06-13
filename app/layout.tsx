@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
 import './globals.css'
@@ -43,7 +42,6 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <div className="bg-texture" aria-hidden="true" />
         <div className="app-content relative z-10">{children}</div>
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

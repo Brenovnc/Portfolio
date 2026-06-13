@@ -37,7 +37,7 @@ export function ProfilePortrait() {
       {/* foto recortada em círculo */}
       <div className="absolute inset-[12%] overflow-hidden rounded-full ring-1 ring-accent/40 shadow-2xl">
         <Image
-          src="/images/projects/Perfil01.jpg"
+          src={`${process.env.NODE_ENV === 'production' ? '/Portfolio' : ''}/images/projects/Perfil01.jpg`}
           alt="Foto de Breno Vieira"
           fill
           sizes="(max-width: 1024px) 80vw, 420px"
