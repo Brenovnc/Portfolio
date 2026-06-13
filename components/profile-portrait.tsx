@@ -11,7 +11,7 @@ export function ProfilePortrait() {
         className="absolute inset-[8%] rounded-full opacity-60 blur-3xl"
         style={{
           background:
-            'radial-gradient(circle, var(--glow-1) 0%, transparent 70%)',
+            'radial-gradient(circle, var(--glow-4) 0%, transparent 70%)',
         }}
       />
 
@@ -24,14 +24,14 @@ export function ProfilePortrait() {
             'conic-gradient(from 0deg, transparent 0deg, var(--accent) 90deg, transparent 200deg, var(--accent) 320deg, transparent 360deg)',
           mask: 'radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px))',
           WebkitMask:
-            'radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px))',
+            'radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 2px))',
         }}
       />
 
       {/* anel estático fino de contorno */}
       <div
         aria-hidden="true"
-        className="absolute inset-[9%] rounded-full ring-1 ring-border-strong"
+        className="absolute inset-[9%] rounded-full ring-2 ring-border-strong"
       />
 
       {/* foto recortada em círculo */}
@@ -42,6 +42,10 @@ export function ProfilePortrait() {
           fill
           sizes="(max-width: 1024px) 80vw, 420px"
           className="object-cover"
+            style={{
+            filter: 'brightness(0.9) contrast(1.09) saturate(0.85)',
+            opacity: 0.95,
+          }}
           priority
         />
       </div>
