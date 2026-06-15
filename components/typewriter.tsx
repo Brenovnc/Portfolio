@@ -21,6 +21,11 @@ export function Typewriter({
   const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
+    setCount(0)
+    setDeleting(false)
+  }, [text])
+
+  useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>
 
     if (!deleting && count === text.length) {
@@ -38,7 +43,7 @@ export function Typewriter({
   }, [
     count,
     deleting,
-    text.length,
+    text,
     typingSpeed,
     deletingSpeed,
     pauseAfterTyping,

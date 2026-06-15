@@ -8,9 +8,15 @@ import {
   useState,
 } from 'react'
 
-export type Theme = 'dark' | 'dark2' | 'light'
+export type Theme = 'gold' | 'light'
 
-const ORDER: Theme[] = ['dark', 'dark2', 'light']
+const ORDER: Theme[] = ['gold', 'light']
+
+function normalizeTheme(value: string | null): Theme | null {
+  if (value === 'gold' || value === 'light') return value
+  if (value === 'dark' || value === 'dark2') return 'gold'
+  return null
+}
 
 type ThemeContextValue = {
   theme: Theme
@@ -21,13 +27,14 @@ type ThemeContextValue = {
 const ThemeContext = createContext<ThemeContextValue | null>(null)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('dark')
+  const [theme, setThemeState] = useState<Theme>('gold')
 
   useEffect(() => {
-    const stored = localStorage.getItem('bv-theme') as Theme | null
-    if (stored && ORDER.includes(stored)) {
+    const stored = normalizeTheme(localStorage.getItem('bv-theme'))
+    if (stored) {
       setThemeState(stored)
       document.documentElement.dataset.theme = stored
+      localStorage.setItem('bv-theme', stored)
     }
   }, [])
 

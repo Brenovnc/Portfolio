@@ -1,53 +1,42 @@
 'use client'
 
-import { Moon, Palette, Sun } from 'lucide-react'
+import { Palette, Sun } from 'lucide-react'
+import { useLanguage } from './language-provider'
 import { useTheme, type Theme } from './theme-provider'
 
-const META: Record<
-  Theme,
-  { label: string; icon: typeof Moon; next: string }
-> = {
-  dark: { label: 'Dark', icon: Moon, next: 'Dourado' },
-  dark2: { label: 'Dourado', icon: Palette, next: 'Light' },
-  light: { label: 'Light', icon: Sun, next: 'Dark' },
+const META: Record<Theme, { icon: typeof Palette }> = {
+  gold: { icon: Palette },
+  light: { icon: Sun },
 }
 
 export function ThemeSwitcher() {
-  const { theme, setTheme, cycleTheme } = useTheme()
+  const { theme, cycleTheme } = useTheme()
+  const { t } = useLanguage()
+
+  const labels: Record<Theme, string> = {
+    gold: t.controls.themeGold,
+    light: t.controls.themeLight,
+  }
+  const nextTheme: Record<Theme, Theme> = {
+    gold: 'light',
+    light: 'gold',
+  }
   const Icon = META[theme].icon
 
   return (
-    <div className="flex items-center gap-2">
-      <button
-        type="button"
-        onClick={cycleTheme}
-        aria-label={`Alterar tema. Atual: ${META[theme].label}. Próximo: ${META[theme].next}`}
-        className="group flex items-center gap-2 rounded-full border border-border-strong bg-surface px-3.5 py-2 text-xs tracking-wide text-foreground/90 backdrop-blur-sm transition-colors hover:border-accent hover:text-accent"
-      >
-        <Icon className="h-4 w-4 text-accent transition-transform group-hover:rotate-12" />
-        <span className="hidden font-medium sm:inline">{META[theme].label}</span>
-      </button>
-
-      <div
-        className="hidden items-center gap-1.5 md:flex"
-        role="group"
-        aria-label="Selecionar tema"
-      >
-        {(Object.keys(META) as Theme[]).map((t) => (
-          <button
-            key={t}
-            type="button"
-            onClick={() => setTheme(t)}
-            aria-label={`Tema ${META[t].label}`}
-            aria-pressed={theme === t}
-            className={`h-2 w-2 rounded-full transition-all ${
-              theme === t
-                ? 'w-5 bg-accent'
-                : 'bg-foreground/25 hover:bg-foreground/50'
-            }`}
-          />
-        ))}
-      </div>
-    </div>
+    <button
+      type="button"
+      onClick={cycleTheme}
+      aria-label={`${t.controls.themeGroup}. ${labels[theme]} -> ${
+        labels[nextTheme[theme]]
+      }`}
+      className="group inline-flex h-9 items-center gap-2 rounded-full border border-border-strong bg-surface/70 px-3.5 text-xs font-semibold text-foreground/90 backdrop-blur-sm transition-colors hover:border-accent hover:text-accent"
+    >
+      <Icon
+        className="h-4 w-4 text-accent transition-transform group-hover:rotate-12"
+        strokeWidth={1.75}
+      />
+      <span>{labels[theme]}</span>
+    </button>
   )
 }

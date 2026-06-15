@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#070b14',
+  themeColor: '#0a0a0f',
 }
 
 export default function RootLayout({
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      data-theme="dark"
+      data-theme="gold"
       className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} bg-background`}
       suppressHydrationWarning
     >

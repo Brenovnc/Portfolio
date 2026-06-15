@@ -1,39 +1,9 @@
+'use client'
+
 import { Briefcase, GraduationCap, Rocket } from 'lucide-react'
+import { useLanguage } from './language-provider'
 
-type TimelineEntry = {
-  Icon: typeof GraduationCap
-  period: string
-  title: string
-  org: string
-  description: string
-}
-
-const EXPERIENCES: TimelineEntry[] = [
-  {
-    Icon: GraduationCap,
-    period: '2023 — 2027',
-    title: 'Bacharelado em Sistemas de Informação',
-    org: 'Universidade Federal de Itajubá (UNIFEI)',
-    description:
-      'Formação sólida em algoritmos, estruturas de dados, engenharia de software e sistemas distribuídos, com foco em desenvolvimento backend.',
-  },
-  {
-    Icon: Rocket,
-    period: '2024 — Atual',
-    title: 'Projetos & Estudos em Backend',
-    org: 'Desenvolvimento independente',
-    description:
-      'Construção de APIs, automações e integrações com Python e Node.js, explorando bancos de dados, cloud e boas práticas de arquitetura.',
-  },
-  {
-    Icon: Briefcase,
-    period: 'Futuro',
-    title: 'Próximo capítulo',
-    org: 'Em aberto para oportunidades',
-    description:
-      'Buscando desafios reais como desenvolvedor backend, onde possa somar valor a um time e seguir evoluindo de forma contínua.',
-  },
-]
+const EXPERIENCE_ICONS = [GraduationCap, Rocket, Briefcase]
 
 function SectionHeading({ tag, title }: { tag: string; title: string }) {
   return (
@@ -48,26 +18,28 @@ function SectionHeading({ tag, title }: { tag: string; title: string }) {
 }
 
 export function Experience() {
+  const { t } = useLanguage()
+
   return (
     <section id="experience" className="mx-auto mt-32 max-w-6xl px-5 sm:px-8">
-      <SectionHeading tag="Trajetória" title="Linha do tempo" />
+      <SectionHeading tag={t.experience.tag} title={t.experience.title} />
 
       <div className="relative">
-        {/* Linha vertical: à esquerda no mobile, centralizada no desktop */}
         <span
           aria-hidden="true"
           className="absolute left-[15px] top-2 h-full w-px bg-gradient-to-b from-accent/60 via-border to-transparent md:left-1/2 md:-translate-x-1/2"
         />
 
         <ol className="space-y-12 md:space-y-0">
-          {EXPERIENCES.map(({ Icon, period, title, org, description }, i) => {
+          {t.experience.entries.map(({ period, title, org, description }, i) => {
+            const Icon = EXPERIENCE_ICONS[i] ?? Briefcase
             const isLeft = i % 2 === 0
+
             return (
               <li
                 key={title}
                 className="relative md:grid md:grid-cols-2 md:gap-x-16"
               >
-                {/* Nó com ícone */}
                 <span
                   aria-hidden="true"
                   className="absolute left-0 top-0 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-border-strong bg-background shadow-[0_0_18px_-4px_var(--accent)] md:left-1/2 md:-translate-x-1/2"
@@ -75,7 +47,6 @@ export function Experience() {
                   <Icon className="h-4 w-4 text-accent" strokeWidth={1.75} />
                 </span>
 
-                {/* Cartão de conteúdo */}
                 <div
                   className={[
                     'ml-12 md:ml-0',

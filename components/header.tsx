@@ -2,19 +2,29 @@
 
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { LanguageSwitcher } from './language-switcher'
+import { useLanguage } from './language-provider'
 import { ThemeSwitcher } from './theme-switcher'
 
 const NAV = [
-  { label: 'home', href: '#home' },
-  { label: 'about', href: '#about' },
-  { label: 'experience', href: '#experience' },
-  { label: 'projects', href: '#projects' },
-  { label: 'skills', href: '#skills' },
-  { label: 'contact', href: '#contact' },
-]
+  { key: 'home', href: '#home' },
+  { key: 'about', href: '#about' },
+  { key: 'experience', href: '#experience' },
+  { key: 'projects', href: '#projects' },
+  { key: 'skills', href: '#skills' },
+  { key: 'contact', href: '#contact' },
+] as const
+
+type NavKey = (typeof NAV)[number]['key']
+
+const navLabel = (nav: Record<NavKey, string>, key: NavKey) => nav[key]
+
+const mobileMenuLabel = (open: boolean, menuOpen: string, menuClose: string) =>
+  open ? menuClose : menuOpen
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const { t } = useLanguage()
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -30,21 +40,26 @@ export function Header() {
           <nav className="hidden items-center gap-8 md:flex" aria-label="Principal">
             {NAV.map((item) => (
               <a
-                key={item.label}
+                key={item.key}
                 href={item.href}
                 className="text-sm tracking-wide text-muted-foreground transition-colors hover:text-foreground"
               >
-                {item.label}
+                {navLabel(t.nav, item.key)}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <ThemeSwitcher />
+            <LanguageSwitcher />
             <button
               type="button"
               className="md:hidden"
-              aria-label="Abrir menu"
+              aria-label={mobileMenuLabel(
+                open,
+                t.controls.menuOpen,
+                t.controls.menuClose,
+              )}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
@@ -64,12 +79,12 @@ export function Header() {
           >
             {NAV.map((item) => (
               <a
-                key={item.label}
+                key={item.key}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-3 py-2 text-sm tracking-wide text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
-                {item.label}
+                {navLabel(t.nav, item.key)}
               </a>
             ))}
           </nav>

@@ -2,7 +2,8 @@
 
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { type Project, PROJECTS } from './projects-data'
+import { useLanguage } from './language-provider'
+import { type Project, PROJECT_VISUALS } from './projects-data'
 
 function SectionHeading({ tag, title }: { tag: string; title: string }) {
   return (
@@ -27,12 +28,12 @@ function ProjectCard({ project }: { project: Project }) {
         {project.description}
       </p>
       <div className="mt-5 flex flex-wrap gap-2">
-        {project.tags.map((t) => (
+        {project.tags.map((tag) => (
           <span
-            key={t}
+            key={tag}
             className="rounded-md border border-border bg-surface/40 px-2.5 py-1 text-[11px] tracking-wide text-foreground/70"
           >
-            {t}
+            {tag}
           </span>
         ))}
       </div>
@@ -41,11 +42,18 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export function Projects() {
+  const { t } = useLanguage()
+  const projects: Project[] = t.projects.items.map((project, index) => ({
+    ...project,
+    visual: PROJECT_VISUALS[index],
+  }))
+  const projectCount = projects.length
+
   const trackRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(0)
   const [visibleCount, setVisibleCount] = useState(1)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
-  const [canScrollNext, setCanScrollNext] = useState(PROJECTS.length > 1)
+  const [canScrollNext, setCanScrollNext] = useState(projectCount > 1)
 
   const getCardMetrics = (track: HTMLDivElement) => {
     const firstCard = track.children[0] as HTMLElement | undefined
@@ -74,7 +82,7 @@ export function Projects() {
   const scrollToIndex = (index: number) => {
     const track = trackRef.current
     if (!track) return
-    const clamped = Math.max(0, Math.min(index, PROJECTS.length - 1))
+    const clamped = Math.max(0, Math.min(index, projectCount - 1))
     const card = getCardMetrics(track)[clamped]
     const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth)
 
@@ -147,18 +155,18 @@ export function Projects() {
       track.removeEventListener('scroll', updateCarouselState)
       window.removeEventListener('resize', updateCarouselState)
     }
-  }, [])
+  }, [projectCount])
 
   return (
     <section id="projects" className="mx-auto mt-32 max-w-6xl px-5 sm:px-8">
-      <SectionHeading tag="Sobre mim" title="Projects" />
+      <SectionHeading tag={t.projects.tag} title={t.projects.title} />
 
       <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 sm:gap-4">
         <button
           type="button"
           onClick={() => scrollByDirection(-1)}
           disabled={!canScrollPrev}
-          aria-label="Projeto anterior"
+          aria-label={t.projects.previous}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-border-strong bg-surface/40 text-foreground backdrop-blur-sm transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-border-strong disabled:hover:text-foreground sm:h-11 sm:w-11"
         >
           <ChevronLeft className="h-4 w-4" />
@@ -168,7 +176,7 @@ export function Projects() {
           ref={trackRef}
           className="flex min-w-0 snap-x snap-mandatory gap-6 overflow-x-auto pb-4 scrollbar-none [&::-webkit-scrollbar]:hidden"
         >
-          {PROJECTS.map((project) => (
+          {projects.map((project) => (
             <div
               key={project.title}
               className="w-[88%] flex-none snap-start sm:w-[calc(50%-0.75rem)]"
@@ -182,7 +190,7 @@ export function Projects() {
           type="button"
           onClick={() => scrollByDirection(1)}
           disabled={!canScrollNext}
-          aria-label="Proximo projeto"
+          aria-label={t.projects.next}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-border-strong bg-surface/40 text-foreground backdrop-blur-sm transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-border-strong disabled:hover:text-foreground sm:h-11 sm:w-11"
         >
           <ChevronRight className="h-4 w-4" />
@@ -207,16 +215,16 @@ export function Projects() {
               } * var(--dot-gap))`,
             }}
           />
-          {PROJECTS.map((project, i) => {
+          {projects.map((project, index) => {
             const isVisible =
-              i >= active && i < Math.min(active + visibleCount, PROJECTS.length)
+              index >= active && index < Math.min(active + visibleCount, projectCount)
 
             return (
               <button
                 key={project.title}
                 type="button"
-                onClick={() => scrollToIndex(i)}
-                aria-label={`Ir para ${project.title}`}
+                onClick={() => scrollToIndex(index)}
+                aria-label={`${t.projects.goTo} ${project.title}`}
                 aria-current={isVisible ? 'true' : undefined}
                 className={`relative z-10 h-2 w-2 rounded-full transition-colors ${
                   isVisible ? 'bg-transparent' : 'bg-border-strong hover:bg-accent/60'

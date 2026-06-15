@@ -1,5 +1,8 @@
+'use client'
+
 import { Mail, MapPin } from 'lucide-react'
 import type { ComponentType, SVGProps } from 'react'
+import { useLanguage } from './language-provider'
 
 function GithubIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -27,34 +30,36 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-const SOCIAL: {
-  Icon: ComponentType<SVGProps<SVGSVGElement>>
-  label: string
-  href: string
-}[] = [
-  {
-    Icon: Mail,
-    label: 'E-mail',
-    href: 'mailto:brenovnc2023@gmail.com',
-  },
-  {
-    Icon: LinkedinIcon,
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/',
-  },
-  {
-    Icon: GithubIcon,
-    label: 'GitHub',
-    href: 'https://github.com/Brenovnc',
-  },
-  {
-    Icon: MapPin,
-    label: 'Localização: Brasil',
-    href: 'https://www.google.com/maps/place/Brasil',
-  },
-]
-
 export function Footer() {
+  const { t } = useLanguage()
+
+  const social: {
+    Icon: ComponentType<SVGProps<SVGSVGElement>>
+    label: string
+    href: string
+  }[] = [
+    {
+      Icon: Mail,
+      label: 'E-mail',
+      href: 'mailto:brenovnc2023@gmail.com',
+    },
+    {
+      Icon: LinkedinIcon,
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/',
+    },
+    {
+      Icon: GithubIcon,
+      label: 'GitHub',
+      href: 'https://github.com/Brenovnc',
+    },
+    {
+      Icon: MapPin,
+      label: t.footer.location,
+      href: 'https://www.google.com/maps/place/Brasil',
+    },
+  ]
+
   return (
     <footer
       id="contact"
@@ -68,8 +73,8 @@ export function Footer() {
           BV
         </a>
 
-        <nav aria-label="Contato e redes" className="flex items-center gap-3">
-          {SOCIAL.map(({ Icon, label, href }) => (
+        <nav aria-label={t.footer.aria} className="flex items-center gap-3">
+          {social.map(({ Icon, label, href }) => (
             <a
               key={label}
               href={href}
@@ -85,7 +90,7 @@ export function Footer() {
         </nav>
 
         <p className="text-center font-mono text-xs tracking-wide text-muted-foreground">
-          © 2024 Breno Vieira · Construído com código, curiosidade e café.
+          {t.footer.copyright}
         </p>
       </div>
     </footer>
