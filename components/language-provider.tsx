@@ -34,9 +34,9 @@ export const COPY = {
       languageEn: 'Ingles',
     },
     hero: {
-      eyebrow: 'Desenvolvedor Backend',
-      typewriter: 'Desenvolvedor Backend e Engenheiro de Software',
-      tags: ['Python', 'Node.js', 'Database', 'Cloud'],
+      eyebrow: 'Desenvolvedor Full Stack',
+      typewriter: 'Desenvolvedor Full Stack',
+      tags: ['C#', '.NET', 'Angular', 'TypeScript'],
       projectsCta: 'Ver Projetos',
       cvCta: 'Baixar CV',
       quote: 'Projetos, universo e codigo movem ideias.',
@@ -45,20 +45,15 @@ export const COPY = {
       tag: 'Sobre mim',
       title: 'Quem sou eu',
       bio: [
-        'Desenvolvedor com foco em Linguagem 1 e Linguagem 2, construindo solucoes backend com atencao a arquitetura, clareza e evolucao continua.',
-        'Tenho interesse por APIs, automacoes, bancos de dados e sistemas que resolvem problemas reais com simplicidade.',
-        'Este portfolio esta organizado para crescer junto com meus projetos, estudos e proximas experiencias profissionais.',
+        'Desenvolvedor Full Stack focado em C# e .NET, construindo aplicacoes web escalaveis de ponta a ponta, com conhecimento em frameworks frontend modernos e praticas de desenvolvimento cloud-native.',
+        'Construo meus proprios projetos aplicando esse conhecimento na pratica, com foco em codigo limpo e arquitetura bem estruturada.',
+        'Tenho interesse por APIs REST, automacoes, bancos de dados e sistemas que resolvem problemas reais com simplicidade. Alem do ecossistema .NET, tambem tenho conhecimento em Python, FastAPI e Node.js.',
       ],
       timeline: [
         {
           title: 'Bacharel em Sistemas de Informacao',
           org: 'Universidade Federal de Itajuba (UNIFEI)',
-          period: '03/2023 - Previsao 06/2027',
-        },
-        {
-          title: 'Outra coisa',
-          org: 'Organizacao',
-          period: '01/2027 - 12/2029',
+          period: '01/2023 - Previsao 07/2027',
         },
         {
           title: 'Idiomas',
@@ -72,25 +67,25 @@ export const COPY = {
       title: 'Linha do tempo',
       entries: [
         {
-          period: '2023 - 2027',
-          title: 'Bacharelado em Sistemas de Informacao',
-          org: 'Universidade Federal de Itajuba (UNIFEI)',
+          period: '2025',
+          title: 'Analista de Automacao de Processos',
+          org: 'Aptiv · Paraisopolis, MG (Presencial)',
           description:
-            'Formacao solida em algoritmos, estruturas de dados, engenharia de software e sistemas distribuidos, com foco em desenvolvimento backend.',
+            'Desenvolvimento de scripts de automacao desktop com Python, Selenium e PyAutoGUI, alem de ferramentas internas com Electron e JavaScript, integrando sistemas e reduzindo o tempo de execucao de tarefas operacionais repetitivas.',
         },
         {
-          period: '2024 - Atual',
-          title: 'Projetos & Estudos em Backend',
-          org: 'Desenvolvimento independente',
+          period: '2026',
+          title: 'Analista de Dados',
+          org: 'INF8Vision · Remoto',
           description:
-            'Construcao de APIs, automacoes e integracoes com Python e Node.js, explorando bancos de dados, cloud e boas praticas de arquitetura.',
+            'Construcao de pipelines de dados automatizados integrando APIs REST (Google Ads, Meta Ads), Python e Power BI, com ETL via Google Apps Script e Make, modelagem relacional e automacao de atualizacoes via GitHub Actions.',
         },
         {
           period: 'Futuro',
           title: 'Proximo capitulo',
           org: 'Em aberto para oportunidades',
           description:
-            'Buscando desafios reais como desenvolvedor backend, onde possa somar valor a um time e seguir evoluindo de forma continua.',
+            'Buscando minha primeira oportunidade profissional como desenvolvedor Full Stack, aplicando conhecimento em C#, .NET, Angular e TypeScript para agregar valor a um time e seguir evoluindo de forma continua.',
         },
       ],
     },
@@ -133,27 +128,27 @@ export const COPY = {
       areas: [
         {
           title: 'Front-end',
-          items: ['React1', 'React2', 'React3', 'React4', 'HTML/CSS'],
+          items: ['Angular', 'React', 'TypeScript', 'JavaScript', 'HTML/CSS'],
         },
         {
           title: 'Back-end',
-          items: ['Python1', 'Python2', 'Python3', 'Python4'],
+          items: ['C#', '.NET / ASP.NET Core', 'Entity Framework Core', 'Python / FastAPI', 'Node.js'],
         },
         {
           title: 'Banco de Dados',
-          items: ['PostgreSQL1', 'PostgreSQL2', 'PostgreSQL3'],
+          items: ['SQL Server', 'PostgreSQL', 'Power BI'],
         },
         {
           title: 'Outras Tecnologias',
-          items: ['Git/GitHub1', 'Git/GitHub2', 'Git/GitHub3'],
+          items: ['Git & GitHub', 'Docker', 'Postman'],
         },
       ],
     },
     footer: {
       aria: 'Contato e redes',
-      location: 'Localizacao: Brasil',
+      location: 'Localizacao: Minas Gerais, Brasil',
       copyright:
-        '© 2024 Breno Vieira · Construido com codigo, curiosidade e cafe.',
+        '© 2026 Breno Vieira · Construido com codigo, curiosidade e cafe.',
     },
   },
   en: {
@@ -177,9 +172,9 @@ export const COPY = {
       languageEn: 'English',
     },
     hero: {
-      eyebrow: 'Backend Developer',
-      typewriter: 'Backend Developer and Software Engineer',
-      tags: ['Python', 'Node.js', 'Database', 'Cloud'],
+      eyebrow: 'Full Stack Developer',
+      typewriter: 'Full Stack Developer',
+      tags: ['C#', '.NET', 'Angular', 'TypeScript'],
       projectsCta: 'View Projects',
       cvCta: 'Download CV',
       quote: 'Projects, the universe, and code move ideas forward.',
@@ -188,20 +183,15 @@ export const COPY = {
       tag: 'About me',
       title: 'Who I am',
       bio: [
-        'Developer focused on Language 1 and Language 2, building backend solutions with care for architecture, clarity, and continuous growth.',
-        'I am interested in APIs, automation, databases, and systems that solve real problems with simplicity.',
-        'This portfolio is organized to grow alongside my projects, studies, and next professional experiences.',
+        'Full Stack .NET Developer focused on building scalable web applications from end to end, with knowledge of modern frontend frameworks and cloud-native development practices.',
+        'I build my own projects applying this knowledge in practice, with a focus on clean code and well-structured architecture.',
+        'Beyond the .NET ecosystem, I also have knowledge of Python, FastAPI and Node.js, constantly expanding my technical skills and exploring new approaches to software development.',
       ],
       timeline: [
         {
           title: 'Bachelor in Information Systems',
           org: 'Federal University of Itajuba (UNIFEI)',
-          period: '03/2023 - Expected 06/2027',
-        },
-        {
-          title: 'Another thing',
-          org: 'Organization',
-          period: '01/2027 - 12/2029',
+          period: '01/2023 - Expected 07/2027',
         },
         {
           title: 'Languages',
@@ -215,25 +205,25 @@ export const COPY = {
       title: 'Timeline',
       entries: [
         {
-          period: '2023 - 2027',
-          title: 'Bachelor in Information Systems',
-          org: 'Federal University of Itajuba (UNIFEI)',
+          period: '2025',
+          title: 'Process Automation Analyst',
+          org: 'Aptiv · Paraisopolis, MG (On-site)',
           description:
-            'Solid foundation in algorithms, data structures, software engineering, and distributed systems, with a focus on backend development.',
+            'Built desktop automation scripts with Python, Selenium and PyAutoGUI, along with internal tools using Electron and JavaScript, integrating systems and reducing execution time of repetitive operational tasks.',
         },
         {
-          period: '2024 - Present',
-          title: 'Backend Projects & Studies',
-          org: 'Independent development',
+          period: '2026',
+          title: 'Data Analyst',
+          org: 'INF8Vision · Remote',
           description:
-            'Building APIs, automations, and integrations with Python and Node.js while exploring databases, cloud, and architecture best practices.',
+            'Built automated data pipelines integrating REST APIs (Google Ads, Meta Ads), Python and Power BI, with ETL workflows via Google Apps Script and Make, relational modeling, and automated refresh routines via GitHub Actions.',
         },
         {
           period: 'Future',
           title: 'Next chapter',
           org: 'Open to opportunities',
           description:
-            'Looking for real backend challenges where I can add value to a team and keep growing consistently.',
+            'Looking for my first professional opportunity as a Full Stack Developer, applying knowledge in C#, .NET, Angular, and TypeScript to add value to a team and keep growing consistently.',
         },
       ],
     },
@@ -276,26 +266,26 @@ export const COPY = {
       areas: [
         {
           title: 'Front-end',
-          items: ['React1', 'React2', 'React3', 'React4', 'HTML/CSS'],
+          items: ['Angular', 'React', 'TypeScript', 'JavaScript', 'HTML/CSS'],
         },
         {
           title: 'Back-end',
-          items: ['Python1', 'Python2', 'Python3', 'Python4'],
+          items: ['C#', '.NET / ASP.NET Core', 'Entity Framework Core', 'Python / FastAPI', 'Node.js'],
         },
         {
           title: 'Databases',
-          items: ['PostgreSQL1', 'PostgreSQL2', 'PostgreSQL3'],
+          items: ['SQL Server', 'PostgreSQL', 'Power BI'],
         },
         {
           title: 'Other Technologies',
-          items: ['Git/GitHub1', 'Git/GitHub2', 'Git/GitHub3'],
+          items: ['Git & GitHub', 'Docker', 'Postman'],
         },
       ],
     },
     footer: {
       aria: 'Contact and social links',
-      location: 'Location: Brazil',
-      copyright: '© 2024 Breno Vieira · Built with code, curiosity, and coffee.',
+      location: 'Location: Minas Gerais, Brazil',
+      copyright: '© 2026 Breno Vieira · Built with code, curiosity, and coffee.',
     },
   },
 } as const

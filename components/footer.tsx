@@ -46,7 +46,7 @@ export function Footer() {
     {
       Icon: LinkedinIcon,
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/',
+      href: 'https://www.linkedin.com/in/breno-carneiro/',
     },
     {
       Icon: GithubIcon,
@@ -56,7 +56,7 @@ export function Footer() {
     {
       Icon: MapPin,
       label: t.footer.location,
-      href: 'https://www.google.com/maps/place/Brasil',
+      href: 'https://www.google.com/maps/place/Minas+Gerais',
     },
   ]
 

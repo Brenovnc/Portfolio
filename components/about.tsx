@@ -40,7 +40,7 @@ export function About() {
             </a>
             <span className="inline-flex items-center gap-2 text-foreground/80">
               <Phone className="h-4 w-4 text-accent" strokeWidth={1.75} />
-              (00) 00000-0000
+              +55 035 99880-7009
             </span>
           </div>
         </div>

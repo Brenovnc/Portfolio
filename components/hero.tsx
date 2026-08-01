@@ -9,6 +9,8 @@ import { ProfilePortrait } from './profile-portrait'
 // Escolha o modelo visual do hero: 'cube' (cubo wireframe animado) ou 'portrait' (foto circular)
 const HERO_VISUAL: 'cube' | 'portrait' = 'portrait'
 
+const RESUME = '/Currículo_2026_2.pdf'
+
 export function Hero() {
   const { t } = useLanguage()
 
@@ -54,7 +56,8 @@ export function Hero() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
-            href="#contact"
+            href={RESUME}
+            download="Currículo_2026_2.pdf"
             className="inline-flex items-center gap-2 rounded-xl border border-border-strong bg-surface/40 px-6 py-3.5 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:border-accent hover:text-accent"
           >
             {t.hero.cvCta}
