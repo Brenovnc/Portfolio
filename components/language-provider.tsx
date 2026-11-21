@@ -14,11 +14,11 @@ const LANGUAGES: Language[] = ['pt', 'en']
 
 export const COPY = {
   pt: {
-    languageName: 'Portugues',
+    languageName: 'Português',
     nav: {
       home: 'home',
       about: 'sobre',
-      experience: 'trajetoria',
+      experience: 'trajetória',
       projects: 'projetos',
       skills: 'habilidades',
       contact: 'contato',
@@ -30,8 +30,8 @@ export const COPY = {
       themeGold: 'Dourado',
       themeLight: 'Claro',
       languageGroup: 'Selecionar idioma',
-      languagePt: 'Portugues',
-      languageEn: 'Ingles',
+      languagePt: 'Português',
+      languageEn: 'Inglês',
     },
     hero: {
       eyebrow: 'Desenvolvedor Full Stack',
@@ -39,53 +39,53 @@ export const COPY = {
       tags: ['C#', '.NET', 'Angular', 'TypeScript'],
       projectsCta: 'Ver Projetos',
       cvCta: 'Baixar CV',
-      quote: 'Projetos, universo e codigo movem ideias.',
+      quote: 'Projetos, universo e código movem ideias.',
     },
     about: {
       tag: 'Sobre mim',
       title: 'Quem sou eu',
       bio: [
-        'Desenvolvedor Full Stack focado em C# e .NET, construindo aplicacoes web escalaveis de ponta a ponta, com conhecimento em frameworks frontend modernos e praticas de desenvolvimento cloud-native.',
-        'Construo meus proprios projetos aplicando esse conhecimento na pratica, com foco em codigo limpo e arquitetura bem estruturada.',
-        'Tenho interesse por APIs REST, automacoes, bancos de dados e sistemas que resolvem problemas reais com simplicidade. Alem do ecossistema .NET, tambem tenho conhecimento em Python, FastAPI e Node.js.',
+        'Sou desenvolvedor Full Stack com foco em C#/.NET e Angular. Estou concluindo Sistemas de Informação na UNIFEI.',
+        'Construo projetos completos com C#/.NET, Angular e PostgreSQL, do banco de dados à interface.',
+        'Gosto de APIs REST, automações e bancos de dados. Também tenho experiência com Python, FastAPI e Node.js.',
       ],
       timeline: [
         {
-          title: 'Bacharel em Sistemas de Informacao',
-          org: 'Universidade Federal de Itajuba (UNIFEI)',
-          period: '01/2023 - Previsao 07/2027',
+          title: 'Bacharelado em Sistemas de Informação',
+          org: 'Universidade Federal de Itajubá (UNIFEI)',
+          period: '01/2023 - Previsão 07/2027',
         },
         {
           title: 'Idiomas',
-          org: 'Portugues (Nativo) - Ingles (Intermediario)',
+          org: 'Português (Nativo) - Inglês (Intermediário)',
           period: '',
         },
       ],
     },
     experience: {
-      tag: 'Trajetoria',
+      tag: 'Trajetória',
       title: 'Linha do tempo',
       entries: [
         {
           period: '2025',
-          title: 'Analista de Automacao de Processos',
-          org: 'Aptiv · Paraisopolis, MG (Presencial)',
+          title: 'Analista de Automação de Processos',
+          org: 'Aptiv · Paraisópolis, MG (Presencial)',
           description:
-            'Desenvolvimento de scripts de automacao desktop com Python, Selenium e PyAutoGUI, alem de ferramentas internas com Electron e JavaScript, integrando sistemas e reduzindo o tempo de execucao de tarefas operacionais repetitivas.',
+            'Scripts de automação desktop com Python, Selenium e PyAutoGUI e ferramentas internas com Electron e JavaScript, reduzindo o tempo de tarefas operacionais repetitivas.',
         },
         {
           period: '2026',
           title: 'Analista de Dados',
           org: 'INF8Vision · Remoto',
           description:
-            'Construcao de pipelines de dados automatizados integrando APIs REST (Google Ads, Meta Ads), Python e Power BI, com ETL via Google Apps Script e Make, modelagem relacional e automacao de atualizacoes via GitHub Actions.',
+            'Pipelines de dados com APIs REST (Google Ads, Meta Ads), Python e Power BI, com ETL via Google Apps Script e Make e atualizações automáticas por GitHub Actions.',
         },
         {
           period: 'Futuro',
-          title: 'Proximo capitulo',
-          org: 'Em aberto para oportunidades',
+          title: 'Próximo capítulo',
+          org: 'Aberto a oportunidades',
           description:
-            'Buscando minha primeira oportunidade profissional como desenvolvedor Full Stack, aplicando conhecimento em C#, .NET, Angular e TypeScript para agregar valor a um time e seguir evoluindo de forma continua.',
+            'Busco minha primeira oportunidade como desenvolvedor Full Stack, com C#, .NET, Angular e TypeScript.',
         },
       ],
     },
@@ -93,32 +93,27 @@ export const COPY = {
       tag: 'Projetos',
       title: 'Projetos',
       previous: 'Projeto anterior',
-      next: 'Proximo projeto',
+      next: 'Próximo projeto',
       goTo: 'Ir para',
+      openSite: 'Abrir o site do projeto',
+      viewCode: 'Ver código',
+      viewCodeOf: 'Ver o código no GitHub do projeto',
       items: [
         {
-          title: 'Node.js API',
+          title: 'PERE',
           description:
-            'API RESTful escalavel com autenticacao, rotas protegidas e integracao com banco de dados. Arquitetura orientada a servicos com foco em performance.',
-          tags: ['Node.js', 'Express', 'JWT', 'Docker'],
+            'Plataforma de estudo com repetição espaçada. Professores criam módulos e turmas; alunos estudam em sessões curtas, com ou sem conta (modo visitante). Reduzi de 41–52 para 7 as consultas SQL por resposta de aluno, medindo antes e depois.',
+          tags: ['ASP.NET Core 10', 'EF Core', 'PostgreSQL', 'Angular 22', 'Tailwind', 'Docker', 'FSRS'],
+          site: 'https://pere-estudos.vercel.app',
+          repo: 'https://github.com/Brenovnc/PERE',
         },
         {
-          title: 'Schemas',
+          title: 'Orbis',
           description:
-            'Modelagem de dados organizada com Prisma ORM, garantindo consistencia, performance e escalabilidade nas relacoes entre entidades.',
-          tags: ['Prisma', 'PostgreSQL', 'Database'],
-        },
-        {
-          title: 'Auth Service',
-          description:
-            'Servico de autenticacao com tokens JWT, refresh tokens e controle de acesso baseado em papeis. Sessoes seguras e expiracao automatica.',
-          tags: ['Node.js', 'JWT', 'Redis', 'Security'],
-        },
-        {
-          title: 'Event Pipeline',
-          description:
-            'Pipeline de eventos assincrono com filas e workers, processando milhoes de mensagens com idempotencia e reprocessamento automatico.',
-          tags: ['Kafka', 'Workers', 'AWS', 'Queue'],
+            'Minigames de geografia no mapa: 9 jogos, mundo e Brasil, em português e inglês, com suporte a celular. Os dados são gerados por script a partir de fontes abertas, e o desempenho do mapa foi otimizado com medições no navegador.',
+          tags: ['Angular 22', 'TypeScript', 'D3', 'TopoJSON', 'Tailwind', 'Vitest'],
+          site: 'https://orbis-geography.vercel.app',
+          repo: 'https://github.com/Brenovnc/Orbis',
         },
       ],
     },
@@ -128,27 +123,27 @@ export const COPY = {
       areas: [
         {
           title: 'Front-end',
-          items: ['Angular', 'React', 'TypeScript', 'JavaScript', 'HTML/CSS'],
+          items: ['Angular', 'React', 'TypeScript', 'JavaScript', 'HTML/CSS', 'Tailwind CSS', 'D3'],
         },
         {
           title: 'Back-end',
-          items: ['C#', '.NET / ASP.NET Core', 'Entity Framework Core', 'Python / FastAPI', 'Node.js'],
+          items: ['C#', '.NET / ASP.NET Core', 'Entity Framework Core', 'Python / FastAPI', 'Node.js', 'xUnit', 'Vitest'],
         },
         {
           title: 'Banco de Dados',
-          items: ['SQL Server', 'PostgreSQL', 'Power BI'],
+          items: ['SQL Server', 'PostgreSQL', 'Neon', 'Power BI'],
         },
         {
           title: 'Outras Tecnologias',
-          items: ['Git & GitHub', 'Docker', 'Postman'],
+          items: ['Git & GitHub', 'GitHub Actions', 'Docker', 'Vercel', 'Postman'],
         },
       ],
     },
     footer: {
       aria: 'Contato e redes',
-      location: 'Localizacao: Minas Gerais, Brasil',
+      location: 'Localização: Minas Gerais, Brasil',
       copyright:
-        '© 2026 Breno Vieira · Construido com codigo, curiosidade e cafe.',
+        '© 2026 Breno Vieira · Construído com código, curiosidade e café.',
     },
   },
   en: {
@@ -183,14 +178,14 @@ export const COPY = {
       tag: 'About me',
       title: 'Who I am',
       bio: [
-        'Full Stack .NET Developer focused on building scalable web applications from end to end, with knowledge of modern frontend frameworks and cloud-native development practices.',
-        'I build my own projects applying this knowledge in practice, with a focus on clean code and well-structured architecture.',
-        'Beyond the .NET ecosystem, I also have knowledge of Python, FastAPI and Node.js, constantly expanding my technical skills and exploring new approaches to software development.',
+        "I'm a Full Stack developer focused on C#/.NET and Angular. I'm finishing my Information Systems degree at UNIFEI.",
+        'I build complete projects with C#/.NET, Angular and PostgreSQL, from the database to the interface.',
+        'I enjoy REST APIs, automation and databases. I also have experience with Python, FastAPI and Node.js.',
       ],
       timeline: [
         {
           title: 'Bachelor in Information Systems',
-          org: 'Federal University of Itajuba (UNIFEI)',
+          org: 'Federal University of Itajubá (UNIFEI)',
           period: '01/2023 - Expected 07/2027',
         },
         {
@@ -207,23 +202,23 @@ export const COPY = {
         {
           period: '2025',
           title: 'Process Automation Analyst',
-          org: 'Aptiv · Paraisopolis, MG (On-site)',
+          org: 'Aptiv · Paraisópolis, MG (On-site)',
           description:
-            'Built desktop automation scripts with Python, Selenium and PyAutoGUI, along with internal tools using Electron and JavaScript, integrating systems and reducing execution time of repetitive operational tasks.',
+            'Desktop automation scripts with Python, Selenium and PyAutoGUI, and internal tools with Electron and JavaScript, cutting the time of repetitive operational tasks.',
         },
         {
           period: '2026',
           title: 'Data Analyst',
           org: 'INF8Vision · Remote',
           description:
-            'Built automated data pipelines integrating REST APIs (Google Ads, Meta Ads), Python and Power BI, with ETL workflows via Google Apps Script and Make, relational modeling, and automated refresh routines via GitHub Actions.',
+            'Data pipelines with REST APIs (Google Ads, Meta Ads), Python and Power BI, with ETL via Google Apps Script and Make and automatic refreshes through GitHub Actions.',
         },
         {
           period: 'Future',
           title: 'Next chapter',
           org: 'Open to opportunities',
           description:
-            'Looking for my first professional opportunity as a Full Stack Developer, applying knowledge in C#, .NET, Angular, and TypeScript to add value to a team and keep growing consistently.',
+            'Looking for my first opportunity as a Full Stack developer, working with C#, .NET, Angular and TypeScript.',
         },
       ],
     },
@@ -233,30 +228,25 @@ export const COPY = {
       previous: 'Previous project',
       next: 'Next project',
       goTo: 'Go to',
+      openSite: 'Open the project website',
+      viewCode: 'View code',
+      viewCodeOf: 'View the project code on GitHub',
       items: [
         {
-          title: 'Node.js API',
+          title: 'PERE',
           description:
-            'Scalable RESTful API with authentication, protected routes, and database integration. Service-oriented architecture focused on performance.',
-          tags: ['Node.js', 'Express', 'JWT', 'Docker'],
+            'Spaced-repetition study platform. Teachers create modules and classes; students study in short sessions, with or without an account (guest mode). I cut SQL queries per student answer from 41–52 down to 7, measuring before and after.',
+          tags: ['ASP.NET Core 10', 'EF Core', 'PostgreSQL', 'Angular 22', 'Tailwind', 'Docker', 'FSRS'],
+          site: 'https://pere-estudos.vercel.app',
+          repo: 'https://github.com/Brenovnc/PERE',
         },
         {
-          title: 'Schemas',
+          title: 'Orbis',
           description:
-            'Organized data modeling with Prisma ORM, ensuring consistency, performance, and scalability across entity relationships.',
-          tags: ['Prisma', 'PostgreSQL', 'Database'],
-        },
-        {
-          title: 'Auth Service',
-          description:
-            'Authentication service with JWT tokens, refresh tokens, and role-based access control. Secure sessions with automatic expiration.',
-          tags: ['Node.js', 'JWT', 'Redis', 'Security'],
-        },
-        {
-          title: 'Event Pipeline',
-          description:
-            'Asynchronous event pipeline with queues and workers, processing millions of messages with idempotency and automatic reprocessing.',
-          tags: ['Kafka', 'Workers', 'AWS', 'Queue'],
+            'Geography minigames on a map: 9 games, world and Brazil, in Portuguese and English, mobile-friendly. Data is generated by a script from open sources, and map performance was optimized with in-browser measurements.',
+          tags: ['Angular 22', 'TypeScript', 'D3', 'TopoJSON', 'Tailwind', 'Vitest'],
+          site: 'https://orbis-geography.vercel.app',
+          repo: 'https://github.com/Brenovnc/Orbis',
         },
       ],
     },
@@ -266,19 +256,19 @@ export const COPY = {
       areas: [
         {
           title: 'Front-end',
-          items: ['Angular', 'React', 'TypeScript', 'JavaScript', 'HTML/CSS'],
+          items: ['Angular', 'React', 'TypeScript', 'JavaScript', 'HTML/CSS', 'Tailwind CSS', 'D3'],
         },
         {
           title: 'Back-end',
-          items: ['C#', '.NET / ASP.NET Core', 'Entity Framework Core', 'Python / FastAPI', 'Node.js'],
+          items: ['C#', '.NET / ASP.NET Core', 'Entity Framework Core', 'Python / FastAPI', 'Node.js', 'xUnit', 'Vitest'],
         },
         {
           title: 'Databases',
-          items: ['SQL Server', 'PostgreSQL', 'Power BI'],
+          items: ['SQL Server', 'PostgreSQL', 'Neon', 'Power BI'],
         },
         {
           title: 'Other Technologies',
-          items: ['Git & GitHub', 'Docker', 'Postman'],
+          items: ['Git & GitHub', 'GitHub Actions', 'Docker', 'Vercel', 'Postman'],
         },
       ],
     },

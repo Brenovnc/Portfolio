@@ -19,7 +19,7 @@ export default function Page() {
           <Hero />
           <About />
           <Experience />
-          {/* <Projects /> */}
+          <Projects />
           <Skills />
         </main>
         <Footer />

@@ -1,58 +1,47 @@
-# Portifólio
+# Portfólio de Breno Vieira
 
-Este é um projeto Next.js usando TypeScript e Tailwind CSS.
+Portfólio pessoal de desenvolvedor Full Stack (C#/.NET e Angular), em português e inglês.
 
-## Pré-requisitos
+**Site: https://brenovnc.github.io/Portfolio/**
 
-- Node.js 20.9.0 ou superior
-- npm (geralmente instalado junto com o Node.js)
+![Página inicial do portfólio](docs/home.png)
 
-> Se você estiver no Windows, use o instalador do Node.js em https://nodejs.org/.
+## Todo o conteúdo em um único arquivo
 
-## Atualizando Node.js e npm
+Todos os textos do site (português e inglês) vêm de um só arquivo: [components/language-provider.tsx](components/language-provider.tsx), no objeto `COPY`. Atualizar o portfólio (bio, experiências, habilidades, projetos e links) é editar textos, sem mexer nos componentes.
 
-Se sua versão atual for menor que `20.9.0`, atualize o Node.js primeiro. O `npm` sozinho não resolve esse erro de versão do Node.
+## Recursos
 
-1. Atualize o npm (opcional, mas recomendado):
+- Temas dourado e claro
+- Português e inglês
+- Seções: início, sobre, trajetória, projetos, habilidades e contato
+- Currículo para baixar
 
-```powershell
-npm install -g npm@latest
-```
+## Stack
 
-2. Baixe e instale o Node.js 20.x a partir de:
+Next.js (exportação estática), React, TypeScript e Tailwind CSS.
 
-https://nodejs.org/pt-br/download/
+## Como rodar
 
-3. Verifique as versões:
-
-```powershell
-node -v
-npm -v
-```
-
-4. Se `node -v` mostrar uma versão menor que `20.9.0`, reinstale o Node.js com o instalador acima.
-
-## Como executar
-
-1. Abra um terminal na pasta do projeto.
-2. Instale as dependências:
+Requer Node.js 20.9 ou superior.
 
 ```bash
 npm install
-```
-
-3. Inicie o servidor de desenvolvimento:
-
-```bash
 npm run dev
 ```
 
-4. Abra o navegador em `http://localhost:3000`.
+Abra http://localhost:3000. Outros scripts: `npm run build` (gera o site estático em `out/`) e `npm run lint`.
 
-## Scripts úteis
+## Como publicar
 
-- `npm run dev` - Inicia o servidor de desenvolvimento.
-- `npm run build` - Gera a versão de produção.
-- `npm start` - Inicia a aplicação já construída.
-- `npm run lint` - Executa o ESLint no projeto.
+O deploy é feito no GitHub Pages pelo workflow [.github/workflows/pages.yml](.github/workflows/pages.yml), a cada push na branch `main`.
 
+## Estrutura
+
+```
+app/          layout e página (Next.js App Router) e estilos globais
+components/   seções do site e language-provider.tsx (todos os textos)
+lib/          utilitários (inclui o basePath do GitHub Pages)
+public/       currículo em PDF, ícones e imagens dos projetos
+docs/         print usado neste README
+```

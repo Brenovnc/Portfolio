@@ -4,7 +4,7 @@ import { Mail, MapPin } from 'lucide-react'
 import type { ComponentType, SVGProps } from 'react'
 import { useLanguage } from './language-provider'
 
-function GithubIcon(props: SVGProps<SVGSVGElement>) {
+export function GithubIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 24 24"

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
+import { BASE_PATH } from '@/lib/base-path'
 import './globals.css'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
@@ -13,13 +14,12 @@ const playfair = Playfair_Display({
   weight: ['400', '500', '600', '700'],
 })
 
-const basePath =
-  process.env.NODE_ENV === 'production' ? '/Portfolio' : ''
+const basePath = BASE_PATH
 
 export const metadata: Metadata = {
   title: 'Portfólio de Breno Vieira',
   description:
-    'Portfólio de Breno Vieira, Desenvolvedor Backend e Engenheiro de Software. Projetos, universo e código movem ideias.',
+    'Portfólio de Breno Vieira, Desenvolvedor Full Stack com foco em C#/.NET e Angular. Projetos, universo e código movem ideias.',
   icons: {
     icon: [
       {

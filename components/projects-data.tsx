@@ -1,5 +1,7 @@
+import { BASE_PATH } from '@/lib/base-path'
 import type { ReactNode } from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- mantido para uso futuro
 function ArchDiagram() {
   const box =
     'flex items-center justify-center rounded-md border border-border-strong bg-surface/60 px-2 py-2 text-center text-[10px] leading-tight text-foreground/80'
@@ -33,6 +35,7 @@ function ArchDiagram() {
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- mantido para uso futuro
 function CodeWindow({ filename, code }: { filename: string; code: string }) {
   return (
     <div className="overflow-hidden rounded-xl border border-border bg-[#0c1018]">
@@ -55,57 +58,33 @@ export type Project = {
   title: string
   description: string
   tags: readonly string[]
+  site: string
+  repo: string
   visual: ReactNode
 }
 
-export const PROJECT_VISUALS: ReactNode[] = [
-  <ArchDiagram key="architecture" />,
-  <CodeWindow
-    key="schema"
-    filename="schema.prisma"
-    code={`model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  createdAt DateTime @default(now())
+function ProjectShot({ src }: { src: string }) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-border bg-surface/30">
+      <img
+        src={`${BASE_PATH}${src}`}
+        alt=""
+        loading="lazy"
+        className="aspect-[16/10] w-full object-cover object-top"
+      />
+    </div>
+  )
 }
 
-model Project {
-  id     Int    @id @default(autoincrement())
-  title  String
-  userId Int
-  user   User   @relation(fields: [userId], references: [id])
-}`}
+// Um visual por projeto, na mesma ordem de COPY.*.projects.items.
+// ArchDiagram e CodeWindow ficam disponíveis para projetos sem print.
+export const PROJECT_VISUALS: ReactNode[] = [
+  <ProjectShot
+    key="pere"
+    src="/images/projects/pere.png"
   />,
-  <CodeWindow
-    key="auth"
-    filename="auth.controller.ts"
-    code={`export async function login(req, res) {
-  const { email, password } = req.body
-  const user = await users.findByEmail(email)
-  if (!user || !verify(password, user.hash)) {
-    return res.status(401).json({ error: 'Invalid' })
-  }
-  const token = sign({ sub: user.id }, SECRET, {
-    expiresIn: '15m',
-  })
-  const refresh = await issueRefresh(user.id)
-  return res.json({ token, refresh })
-}`}
-  />,
-  <CodeWindow
-    key="consumer"
-    filename="consumer.ts"
-    code={`consumer.run({
-  eachMessage: async ({ topic, message }) => {
-    const event = JSON.parse(message.value)
-    await withIdempotency(event.id, async () => {
-      await handlers[event.type]?.(event.payload)
-    })
-  },
-})
-
-// retry with exponential backoff
-producer.send({ topic: 'dlq', messages })`}
+  <ProjectShot
+    key="orbis"
+    src="/images/projects/orbis.png"
   />,
 ]

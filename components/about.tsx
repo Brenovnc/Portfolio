@@ -1,6 +1,6 @@
 'use client'
 
-import { GraduationCap, Mail, MapPin, Phone } from 'lucide-react'
+import { GraduationCap, Mail, MapPin } from 'lucide-react'
 import { useLanguage } from './language-provider'
 
 const TIMELINE_ICONS = [GraduationCap, GraduationCap, MapPin]
@@ -38,10 +38,6 @@ export function About() {
               <Mail className="h-4 w-4 text-accent" strokeWidth={1.75} />
               brenovnc2023@gmail.com
             </a>
-            <span className="inline-flex items-center gap-2 text-foreground/80">
-              <Phone className="h-4 w-4 text-accent" strokeWidth={1.75} />
-              +55 035 99880-7009
-            </span>
           </div>
         </div>
 

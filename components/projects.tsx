@@ -3,6 +3,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { useLanguage } from './language-provider'
+import { GithubIcon } from './footer'
 import { type Project, PROJECT_VISUALS } from './projects-data'
 
 function SectionHeading({ tag, title }: { tag: string; title: string }) {
@@ -18,11 +19,22 @@ function SectionHeading({ tag, title }: { tag: string; title: string }) {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const { t } = useLanguage()
+
   return (
-    <article className="group h-full rounded-2xl border border-border bg-card p-5 backdrop-blur-sm transition-colors hover:border-border-strong sm:p-6">
+    <article className="group relative h-full cursor-pointer rounded-2xl border border-border bg-card p-5 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-lg sm:p-6">
       {project.visual}
-      <h3 className="mt-6 font-heading text-2xl font-medium text-foreground">
-        {project.title}
+      <h3 className="mt-6 font-heading text-2xl font-medium text-foreground transition-colors group-hover:text-accent">
+        {/* Link "esticado": o ::after cobre o card inteiro e abre o site do projeto */}
+        <a
+          href={project.site}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${t.projects.openSite}: ${project.title}`}
+          className="outline-none after:absolute after:inset-0 after:rounded-2xl focus-visible:after:ring-2 focus-visible:after:ring-accent"
+        >
+          {project.title}
+        </a>
       </h3>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         {project.description}
@@ -37,6 +49,16 @@ function ProjectCard({ project }: { project: Project }) {
           </span>
         ))}
       </div>
+      <a
+        href={project.repo}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${t.projects.viewCodeOf}: ${project.title}`}
+        className="relative z-10 mt-5 inline-flex items-center gap-2 rounded-lg border border-border-strong bg-surface/40 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      >
+        <GithubIcon className="h-4 w-4" />
+        {t.projects.viewCode}
+      </a>
     </article>
   )
 }
@@ -155,6 +177,7 @@ export function Projects() {
       track.removeEventListener('scroll', updateCarouselState)
       window.removeEventListener('resize', updateCarouselState)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- helpers dependem só de refs e do DOM
   }, [projectCount])
 
   return (
@@ -174,7 +197,7 @@ export function Projects() {
 
         <div
           ref={trackRef}
-          className="flex min-w-0 snap-x snap-mandatory gap-6 overflow-x-auto pb-4 scrollbar-none [&::-webkit-scrollbar]:hidden"
+          className="-mx-2 -mb-2 -mt-3 flex min-w-0 snap-x snap-mandatory scroll-px-2 gap-6 overflow-x-auto px-2 pb-6 pt-3 scrollbar-none [&::-webkit-scrollbar]:hidden"
         >
           {projects.map((project) => (
             <div

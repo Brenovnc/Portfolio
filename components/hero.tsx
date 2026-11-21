@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowRight, Download } from 'lucide-react'
+import { BASE_PATH } from '@/lib/base-path'
 import { useLanguage } from './language-provider'
 import { Typewriter } from './typewriter'
 import { PortalWireframe } from './portal-wireframe'
@@ -9,7 +10,7 @@ import { ProfilePortrait } from './profile-portrait'
 // Escolha o modelo visual do hero: 'cube' (cubo wireframe animado) ou 'portrait' (foto circular)
 const HERO_VISUAL: 'cube' | 'portrait' = 'portrait'
 
-const RESUME = '/Portfolio/Curriculo_2026_2.pdf'
+const RESUME = `${BASE_PATH}/Curriculo_2026_2.pdf`
 
 export function Hero() {
   const { t } = useLanguage()

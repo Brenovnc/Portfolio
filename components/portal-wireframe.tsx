@@ -152,7 +152,7 @@ export function PortalWireframe() {
       // rotação em Y
       const cosY = Math.cos(rotY)
       const sinY = Math.sin(rotY)
-      let x = v.x * cosY - v.z * sinY
+      const x = v.x * cosY - v.z * sinY
       let z = v.x * sinY + v.z * cosY
       let y = v.y
       // rotação em X
